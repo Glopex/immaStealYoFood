@@ -222,7 +222,7 @@ MonoBehaviour:
   theBullet: {fileID: 8979221516706239931, guid: 8fe32aeeefb2d184dbaeb94d8ad8755a, type: 3}
   barrelEnd: {fileID: 7128132461800513444}
   state: 0
-  bulletSpeed: 10
+  bulletSpeed: 100
   despawnTime: 3
   playSound: {fileID: 0}
   waitBeforeNextShot: 0.25
