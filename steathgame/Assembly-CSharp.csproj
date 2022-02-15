@@ -55,6 +55,11 @@
   <ItemGroup>
     <Compile Include="Assets\MainCharacterStuff\characterMovement.cs" />
     <Compile Include="Assets\Scripts\AIpatrol.cs" />
+    <Compile Include="Assets\Enemys\EnemyShooting.cs" />
+    <Compile Include="Assets\Enemys\TurretController.cs" />
+    <Compile Include="Assets\Enemys\TurretAim.cs" />
+    <Compile Include="Assets\Enemys\DestroyShell.cs" />
+    <Compile Include="Assets\Enemys\DestroyPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
