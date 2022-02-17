@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 7070945733829151838}
   - component: {fileID: 3175233054315968735}
   - component: {fileID: 2059979362310296373}
+  - component: {fileID: 4031703360311113101}
   m_Layer: 7
   m_Name: Enemy Shell
   m_TagString: EnemyShell
@@ -222,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8979221516706239931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -165.8, y: -11.351153, z: -165.00012}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5948238, y: 2.5948246, z: 2.594824}
   m_Children:
   - {fileID: 5682633651784272613}
@@ -417,3 +418,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167882ec14ac7af42ab2c7b62b08d65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4031703360311113101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979221516706239931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f239f02227eb4a892f133099e962a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 100

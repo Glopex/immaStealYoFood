@@ -8,11 +8,16 @@ public class Turret : MonoBehaviour
     [SerializeField] float turretRotationSpeed = 5f;
 
     private Transform playerTransform;
+    private TurretShoot currentGun;
+    private float fireRate;
+    private float fireRateDelta;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
+        currentGun = GetComponentInChildren<TurretShoot>();
+        fireRate = currentGun.GetRateOfFire();
     }
 
     // Update is called once per frame
@@ -29,5 +34,14 @@ public class Turret : MonoBehaviour
         float turretRotationStep = turretRotationSpeed * Time.deltaTime;
         Vector3 newLookDirection = Vector3.RotateTowards(transform.forward, playerDirection, turretRotationStep, 0f);
         transform.rotation = Quaternion.LookRotation(newLookDirection);
+        fireRateDelta -= Time.deltaTime;
+        
+        if (fireRateDelta <= 0)
+        {
+            currentGun.Fire();
+            fireRateDelta = fireRate;
+        }
+
     }
+
 }

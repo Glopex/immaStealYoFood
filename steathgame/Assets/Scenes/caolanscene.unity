@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1190873143}
   m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -752,6 +752,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1357443399479541109, guid: b63d16748f72dc74ab4d0a9e486456d3, type: 3}
+      propertyPath: rateOfFire
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234739957322849476, guid: b63d16748f72dc74ab4d0a9e486456d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234739957554175075, guid: b63d16748f72dc74ab4d0a9e486456d3, type: 3}
+      propertyPath: turretRange
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8234739957554175076, guid: b63d16748f72dc74ab4d0a9e486456d3, type: 3}
       propertyPath: m_RootOrder
       value: 8

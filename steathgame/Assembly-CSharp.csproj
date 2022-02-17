@@ -56,11 +56,11 @@
     <Compile Include="Assets\Enemys\DestroyShell.cs" />
     <Compile Include="Assets\MainCharacterStuff\characterMovement.cs" />
     <Compile Include="Assets\Enemys\TurretAim.cs" />
-    <Compile Include="Assets\Enemys\TurretController.cs" />
-    <Compile Include="Assets\Enemys\EnemyShooting.cs" />
-    <Compile Include="Assets\Enemys\DestroyPlayer.cs" />
-    <Compile Include="Assets\Enemys\AIpatrol.cs" />
     <Compile Include="Assets\Enemys\Turret.cs" />
+    <Compile Include="Assets\Enemys\DestroyObject.cs" />
+    <Compile Include="Assets\Enemys\AIpatrol.cs" />
+    <Compile Include="Assets\Enemys\TurretShoot.cs" />
+    <Compile Include="Assets\Enemys\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
