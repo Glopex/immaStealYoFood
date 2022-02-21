@@ -12,18 +12,49 @@ public class characterMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown("left ctrl"))
+        {
+            _speed = 2.5f;
+        }
+
+        if (Input.GetKeyUp("left ctrl"))
+        {
+            _speed = 5f;
+        }
+
         GatherInput();
         Look();
+        noiseSize();
     }
 
     private void FixedUpdate()
     {
+        
         Move();
+    }
+    
+    private void noiseSize()
+    {
+       SphereCollider noise = gameObject.GetComponentInChildren<SphereCollider>();
+        if (_input == Vector3.zero)
+        {
+            noise.radius = 0;
+        }
+        else
+        {
+            if (_speed == 5f)
+            {
+                noise.radius = 15;
+            }
+            else
+                noise.radius = 5;
+        }
     }
 
     private void GatherInput()
     {
         _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+       
     }
 
     private void Look()
@@ -38,6 +69,8 @@ public class characterMovement : MonoBehaviour
     {
         _rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.deltaTime);
     }
+
+    
 }
 
 public static class Helpers
