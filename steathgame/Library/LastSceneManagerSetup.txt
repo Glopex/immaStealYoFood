@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/caolanscene.unity
+- path: Assets/Scenes/OisinScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
