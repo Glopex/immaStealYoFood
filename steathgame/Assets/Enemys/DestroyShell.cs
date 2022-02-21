@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DestroyShell : MonoBehaviour
 {
-   
+
     // Start is called before the first frame update
-    
-    void OnTriggerEnter(Collider collider)
+
+    void OnCollisionEnter(Collision collision)
     {
         //destroys shell when it hits object to reduce clitter
-        if (collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy (this.gameObject);
         }
-         if (collider.gameObject.CompareTag("Map"))
+         if (collision.gameObject.CompareTag("Map"))
         {
             
             Destroy (this.gameObject);

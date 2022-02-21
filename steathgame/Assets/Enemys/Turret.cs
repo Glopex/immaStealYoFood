@@ -44,4 +44,20 @@ public class Turret : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            turretRange = 100f;
+        }
+       
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            turretRange = 25f;
+        }
+
+    }
 }
