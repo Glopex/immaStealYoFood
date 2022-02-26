@@ -15,6 +15,7 @@ public class AIpatrol : MonoBehaviour
     public int destPoint = 0;
     public Transform goal;
     public bool PlayerSpotted;
+    [SerializeField] public GameObject state;
 
     //float radius = 5.0f;
 
@@ -44,8 +45,9 @@ public class AIpatrol : MonoBehaviour
 
         if (playerDistance < awareAI)
         {
-            if (playerDistance > 5f) { 
+            if (playerDistance > 5f) {
                 //PlayerSpotted = true;
+                
                 Chase(); 
             }
 
@@ -84,6 +86,7 @@ public class AIpatrol : MonoBehaviour
 
     void Chase()
     {
+        
         agent.SetDestination(player.transform.position);
         agent.speed = 3f;
     }
@@ -93,6 +96,7 @@ public class AIpatrol : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            state.SendMessage("spotted");
             awareAI = 25f;
         }
 
@@ -101,6 +105,7 @@ public class AIpatrol : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            state.SendMessage("notSpotted");
             awareAI = 2.5f;
         }
 
