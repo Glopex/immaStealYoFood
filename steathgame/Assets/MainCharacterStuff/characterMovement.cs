@@ -38,16 +38,16 @@ public class characterMovement : MonoBehaviour
        SphereCollider noise = gameObject.GetComponentInChildren<SphereCollider>();
         if (_input == Vector3.zero)
         {
-            noise.radius = 0;
+            noise.radius = 0f;
         }
         else
         {
             if (_speed == 5f)
             {
-                noise.radius = 15;
+                noise.radius = 7.5f;
             }
             else
-                noise.radius = 5;
+                noise.radius = 2.5f;
         }
     }
 

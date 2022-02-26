@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5469571621043352843}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1680497939563747825}
   m_Layer: 0
   m_Name: Structure
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

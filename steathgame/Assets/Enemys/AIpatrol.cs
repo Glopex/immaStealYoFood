@@ -7,13 +7,14 @@ public class AIpatrol : MonoBehaviour
     
     public Transform player;
     public float playerDistance;
-    public float awareAI = 10f;
+    public float awareAI = 5f;
     public float AIMoveSpeed;
     public float damping = 6.0f;
     public Transform[] navPoint;
     public UnityEngine.AI.NavMeshAgent agent;
     public int destPoint = 0;
     public Transform goal;
+    public bool PlayerSpotted;
 
     //float radius = 5.0f;
 
@@ -40,24 +41,30 @@ public class AIpatrol : MonoBehaviour
             
             //Debug.Log("Seen");
         }
-      
+
         if (playerDistance < awareAI)
         {
-            if (playerDistance > 5f)
-                Chase();
+            if (playerDistance > 5f) { 
+                //PlayerSpotted = true;
+                Chase(); 
+            }
 
 
-            else
+        else
 
-                GoToNextPoint();
+            GoToNextPoint();
 
         }
-
+        
         {
             if (agent.remainingDistance < 0.5f)
                 GoToNextPoint();
         }
+
+        
     }
+
+
 
     void LookAtPlayer()
     {
@@ -78,5 +85,24 @@ public class AIpatrol : MonoBehaviour
     void Chase()
     {
         agent.SetDestination(player.transform.position);
+        agent.speed = 3f;
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            awareAI = 25f;
+        }
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            awareAI = 2.5f;
+        }
+
     }
 }

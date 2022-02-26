@@ -48,7 +48,7 @@ public class Turret : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            turretRange = 100f;
+            turretRange = 25f;
         }
        
     }
@@ -56,7 +56,7 @@ public class Turret : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            turretRange = 25f;
+            turretRange = 5f;
         }
 
     }
