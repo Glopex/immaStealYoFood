@@ -8,19 +8,29 @@ public class characterMovement : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _turnSpeed = 360;
+    [SerializeField] public GameObject positionNose;
+    bool iscrouched;
     private Vector3 _input;
 
     private void Update()
     {
         if (Input.GetKeyDown("left ctrl"))
         {
-            _speed = 2.5f;
+            if(iscrouched == false)
+            {
+                _speed = 2.5f;
+                
+                iscrouched = true;
+            }
+            else
+            {
+                _speed = 5f;
+                iscrouched = false;
+            }
+            
+            
         }
 
-        if (Input.GetKeyUp("left ctrl"))
-        {
-            _speed = 5f;
-        }
 
         GatherInput();
         Look();
@@ -35,7 +45,8 @@ public class characterMovement : MonoBehaviour
     
     private void noiseSize()
     {
-       SphereCollider noise = gameObject.GetComponentInChildren<SphereCollider>();
+        
+        SphereCollider noise = gameObject.GetComponentInChildren<SphereCollider>();
         if (_input == Vector3.zero)
         {
             noise.radius = 0f;
@@ -44,11 +55,15 @@ public class characterMovement : MonoBehaviour
         {
             if (_speed == 5f)
             {
+                positionNose.transform.localPosition = new Vector3(positionNose.transform.localPosition.x, .25f, positionNose.transform.localPosition.z);
                 noise.radius = 7.5f;
             }
             else
+            {
                 noise.radius = 2.5f;
-        }
+                positionNose.transform.localPosition = new Vector3(positionNose.transform.localPosition.x, -.5f, positionNose.transform.localPosition.z);
+            }
+                      }
     }
 
     private void GatherInput()

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyShell
   - Map
+  - enemy
   layers:
   - Default
   - TransparentFX
