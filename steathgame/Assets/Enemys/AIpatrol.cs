@@ -15,6 +15,7 @@ public class AIpatrol : MonoBehaviour
     public int destPoint = 0;
     public Transform goal;
     public bool PlayerSpotted;
+    public bool isGrabbed;
     [SerializeField] public GameObject state;
 
     //float radius = 5.0f;
@@ -63,6 +64,10 @@ public class AIpatrol : MonoBehaviour
                 GoToNextPoint();
         }
 
+        if (isGrabbed == true)
+        {
+            gameObject.transform.position = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x,2, player.GetComponentInChildren<SphereCollider>().transform.position.z);
+        }
         
     }
 
@@ -109,5 +114,14 @@ public class AIpatrol : MonoBehaviour
             awareAI = 2.5f;
         }
 
+    }
+
+    void grabbed()
+    {
+        isGrabbed = true;
+    }
+    void ungrabbed()
+    {
+        isGrabbed = false;
     }
 }

@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\changestate.cs" />
     <Compile Include="Assets\Enemys\DestroyShell.cs" />
     <Compile Include="Assets\checkEnemy.cs" />
     <Compile Include="Assets\Enemys\TurretShoot.cs" />
@@ -64,7 +65,8 @@
     <Compile Include="Assets\Scripts\grabScript.cs" />
     <Compile Include="Assets\Enemys\DestroyObject.cs" />
     <Compile Include="Assets\Enemys\AIpatrol.cs" />
-    <Compile Include="Assets\changestate.cs" />
+    <Compile Include="Assets\grabbable.cs" />
+    <Compile Include="Assets\EnemyGrab.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
