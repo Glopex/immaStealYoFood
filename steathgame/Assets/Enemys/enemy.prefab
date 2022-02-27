@@ -350,6 +350,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2498933042813550099, guid: c4fcf08b8946a29458fe0bd5c86437aa, type: 3}
   m_PrefabInstance: {fileID: 4657196023519208775}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7584334447503681415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3017790965316207296, guid: c4fcf08b8946a29458fe0bd5c86437aa, type: 3}
+  m_PrefabInstance: {fileID: 4657196023519208775}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2436987733459667071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7021187089611910456, guid: c4fcf08b8946a29458fe0bd5c86437aa, type: 3}
+  m_PrefabInstance: {fileID: 4657196023519208775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7687202313438914941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,5 +372,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa59975402aa2a4b82da8cd4e18829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionmark: {fileID: 0}
-  excmark: {fileID: 0}
+  questionmark: {fileID: 2436987733459667071}
+  excmark: {fileID: 7584334447503681415}

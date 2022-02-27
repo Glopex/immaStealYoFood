@@ -15,7 +15,16 @@ public class grabScript : MonoBehaviour
     {
         if (Input.GetKeyDown("e"))
         {
-            //_speed = 2.5f;
+           
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("enemy"))
+        {
+
+
         }
     }
 }
