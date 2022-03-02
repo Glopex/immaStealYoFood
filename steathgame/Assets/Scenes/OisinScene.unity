@@ -3269,7 +3269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148979030}
   m_LocalRotation: {x: 0.23064564, y: 0.37056625, z: -0.095536545, w: 0.8946262}
-  m_LocalPosition: {x: -28.259722, y: 14.147042, z: -31.275623}
+  m_LocalPosition: {x: -18.119722, y: 14.147043, z: -39.525627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46021,7 +46021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121062263}
   m_LocalRotation: {x: 0.23064564, y: 0.37056625, z: -0.095536545, w: 0.8946262}
-  m_LocalPosition: {x: -28.259722, y: 14.147042, z: -31.275623}
+  m_LocalPosition: {x: -18.119722, y: 14.147043, z: -39.525627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 29875355}
@@ -46645,7 +46645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72746731025893509, guid: 1d739887589da344c9186af38c2dfcd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.15
+      value: -2.01
       objectReference: {fileID: 0}
     - target: {fileID: 72746731025893509, guid: 1d739887589da344c9186af38c2dfcd1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46653,7 +46653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72746731025893509, guid: 1d739887589da344c9186af38c2dfcd1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.45
+      value: -22.7
       objectReference: {fileID: 0}
     - target: {fileID: 72746731025893509, guid: 1d739887589da344c9186af38c2dfcd1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46782,9 +46782,17 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3710123324600358867, guid: 58e5e9c63c6474442981a96ac39b88b1, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1630599351603830770}
+    - target: {fileID: 3710123324600358867, guid: 58e5e9c63c6474442981a96ac39b88b1, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1630599351603830770}
+    - target: {fileID: 3710123324600358867, guid: 58e5e9c63c6474442981a96ac39b88b1, type: 3}
+      propertyPath: awareAI
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7163203401754546307, guid: 58e5e9c63c6474442981a96ac39b88b1, type: 3}
       propertyPath: m_RootOrder
       value: 1

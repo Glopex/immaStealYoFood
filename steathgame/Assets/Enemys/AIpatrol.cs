@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIpatrol : MonoBehaviour
 {
-    
+        Animator animator;
     public Transform player;
     public float playerDistance;
     public float awareAI = 5f;
@@ -36,7 +36,7 @@ public class AIpatrol : MonoBehaviour
     {
         playerDistance = Vector3.Distance(player.position, transform.position);
 
-
+        //HENLO THIS IS MY CODE. HI GAB
         if (playerDistance < awareAI)
         {
             LookAtPlayer();
@@ -63,6 +63,7 @@ public class AIpatrol : MonoBehaviour
             if (agent.remainingDistance < 0.5f)
                 GoToNextPoint();
         }
+        //HENLO MY CODE ENDS HERE. MORE BELOW
 
         if (isGrabbed == true)
         {

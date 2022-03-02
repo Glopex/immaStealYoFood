@@ -5,18 +5,18 @@ using UnityEngine.AI;
 
 public class AIpatrol1 : MonoBehaviour
 {
-    
+    Animator animator;
     public Transform player;
     [SerializeField] public NavMeshPath path;
     public float playerDistance;
     public float awareAI = 5f;
     public float AIMoveSpeed;
     public float damping = 6.0f;
-    public Transform[] patrolPoint;
+    public Transform[] patrolPoint; 
     public UnityEngine.AI.NavMeshAgent agent;
     public int destPoint = 0;
     public Transform goal;
-    public bool PlayerSpotted;
+    public bool Spotted;
     public bool isGrabbed;
     public int numberOfChilds;
     private int currentCheckPoint;
@@ -30,8 +30,9 @@ public class AIpatrol1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         path = new NavMeshPath();
-        
+        Spotted = false;
         int loopcheck=-1;
         UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         for(int i = 0; i < gameObject.transform.parent.childCount;  i++)
@@ -58,14 +59,45 @@ public class AIpatrol1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //THIS IS FOR PLAYER DIST
+        playerDistance = Vector3.Distance(player.position, transform.position);
+
         CheckPointList();
         goToCP();
         if (isGrabbed == true)
         {
             gameObject.transform.position = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x,2, player.GetComponentInChildren<SphereCollider>().transform.position.z);
         }
-        
+
+        //HENLO THIS IS MY CODE. HI GAB
+        if (playerDistance < awareAI)
+        {
+            LookAtPlayer();
+
+            //Debug.Log("Seen");
+        }
+
+        if (playerDistance < awareAI)
+        {
+            if (playerDistance > 1f)
+            {
+                //PlayerSpotted = true;
+                
+                Chase();
+               
+            }
+
+
+            else
+           
+            goToCP();
+            
+
+        }
+        //HENLO THIS CODE ENDS HERE. MORE BELOW
     }
+
+
     public void CheckPointList()
     {
         if ((gameObject.transform.position.x >= patrolPoint[currentCheckPoint].position.x-0.2f && gameObject.transform.position.x <= patrolPoint[currentCheckPoint].position.x + 0.2f) && (gameObject.transform.position.z >= patrolPoint[currentCheckPoint].position.z - 0.2f && gameObject.transform.position.z <= patrolPoint[currentCheckPoint].position.z + 0.2f))
@@ -78,6 +110,7 @@ public class AIpatrol1 : MonoBehaviour
     }
     public void goToCP()
     {
+        animator.SetBool("Spotted", false);
         NavMesh.CalculatePath(gameObject.transform.position, patrolPoint[currentCheckPoint].position, NavMesh.AllAreas, path);
         agent.destination = patrolPoint[currentCheckPoint].position;
 
@@ -90,5 +123,18 @@ public class AIpatrol1 : MonoBehaviour
     void ungrabbed()
     {
         isGrabbed = false;
+    }
+
+    //THIS IS THE MORE CODE
+    void Chase()
+    {
+        animator.SetBool("Spotted", true);
+        agent.SetDestination(player.transform.position);
+        agent.speed = 3f;
+    }
+
+    void LookAtPlayer()
+    {
+        transform.LookAt(player);
     }
 }
