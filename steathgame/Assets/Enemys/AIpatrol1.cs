@@ -71,8 +71,15 @@ public class AIpatrol1 : MonoBehaviour
         goToCP();
         if (isGrabbed == true && PlayerSpotted == false)
         {
-            gameObject.transform.position = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x,2, player.GetComponentInChildren<SphereCollider>().transform.position.z);
+            animator.SetBool("Grabbed", true);
+            gameObject.transform.position = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x, 2, player.GetComponentInChildren<SphereCollider>().transform.position.z);
+
         }
+        else 
+        {
+            animator.SetBool("Grabbed", false);
+        }
+
         /*
         //HENLO THIS IS MY CODE. HI GAB
         if (playerDistance < awareAI)
