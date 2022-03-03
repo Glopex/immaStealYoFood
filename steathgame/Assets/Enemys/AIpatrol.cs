@@ -125,4 +125,9 @@ public class AIpatrol : MonoBehaviour
     {
         isGrabbed = false;
     }
+
+    void spotted(bool spotted)
+    {
+        PlayerSpotted = spotted;
+    }
 }

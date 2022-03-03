@@ -22,6 +22,7 @@ public class AIpatrol1 : MonoBehaviour
     private int currentCheckPoint;
     private int NumberOfChilds;
     private int loopcheck = -1;
+    private bool PlayerSpotted;
     [SerializeField] public GameObject state;
 
     //float radius = 5.0f;
@@ -63,12 +64,16 @@ public class AIpatrol1 : MonoBehaviour
         playerDistance = Vector3.Distance(player.position, transform.position);
 
         CheckPointList();
+
+        if (PlayerSpotted == true)
+            Chase();
+        else
         goToCP();
-        if (isGrabbed == true)
+        if (isGrabbed == true && PlayerSpotted == false)
         {
             gameObject.transform.position = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x,2, player.GetComponentInChildren<SphereCollider>().transform.position.z);
         }
-
+        /*
         //HENLO THIS IS MY CODE. HI GAB
         if (playerDistance < awareAI)
         {
@@ -93,7 +98,7 @@ public class AIpatrol1 : MonoBehaviour
             goToCP();
             
 
-        }
+        }*/
         //HENLO THIS CODE ENDS HERE. MORE BELOW
     }
 
@@ -136,5 +141,9 @@ public class AIpatrol1 : MonoBehaviour
     void LookAtPlayer()
     {
         transform.LookAt(player);
+    }
+    void spotted(bool spotted)
+    {
+        PlayerSpotted = spotted;
     }
 }
