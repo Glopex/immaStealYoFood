@@ -8,6 +8,9 @@ public class grabScript : MonoBehaviour
     public bool grabbed = false;
     public bool keypressed;
     public GameObject enemyInFront;
+    public GameObject bottle;
+    public GameObject what;
+    public GameObject nowgrabbing;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,33 +22,42 @@ public class grabScript : MonoBehaviour
     {
 
 
-        if(Input.GetKeyDown("e") && enemyInFront != null && grabbed == false)
+        if(Input.GetKeyDown("e") && what != null && grabbed == false)
         {
             print("funziona");
-            enemyInFront.SendMessage("grabbed");
+            nowgrabbing = what;
+            nowgrabbing.SendMessage("grabbed", gameObject);
+            
             grabbed = true;
         }
        else 
-            if(Input.GetKeyDown("e") && enemyInFront != null && grabbed == true)
+            if(Input.GetKeyDown("e") && grabbed == true)
         {
-            enemyInFront.SendMessage("ungrabbed");
+            nowgrabbing.SendMessage("ungrabbed");
+            nowgrabbing = null;
             grabbed = false;
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
         
             
-        if (other.CompareTag("enemy"))
+        if (other.CompareTag("enemy") || other.CompareTag("bottle"))
             {
-            enemyInFront = other.gameObject;  
+            what = other.gameObject;  
             }
+
+        
         
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("enemy"))
-        enemyInFront = null;
+        what = null;
+
+        if (other.CompareTag("bottle"))
+            what = null;
     }
 }

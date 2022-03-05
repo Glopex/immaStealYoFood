@@ -18,6 +18,7 @@ public class AIpatrol1 : MonoBehaviour
     public Transform goal;
     public bool Spotted;
     public bool isGrabbed;
+    private bool heardsound;
     public int numberOfChilds;
     private int currentCheckPoint;
     private int NumberOfChilds;
@@ -68,7 +69,12 @@ public class AIpatrol1 : MonoBehaviour
         if (PlayerSpotted == true)
             Chase();
         else
-        goToCP();
+            if(heardsound == true)
+        {
+            investigatesound();
+        }
+        else
+            goToCP();
         if (isGrabbed == true && PlayerSpotted == false)
         {
             animator.SetBool("Grabbed", true);
@@ -152,5 +158,32 @@ public class AIpatrol1 : MonoBehaviour
     void spotted(bool spotted)
     {
         PlayerSpotted = spotted;
+    }
+
+    void soundHeard(Vector3 soundSource)
+    {
+        heardsound = true;
+        NavMesh.CalculatePath(gameObject.transform.position, soundSource, NavMesh.AllAreas, path);
+        agent.SetDestination(soundSource);
+    }
+
+    void investigatesound()
+    {
+        if((gameObject.transform.position.x >= agent.destination.x - 0.2f && gameObject.transform.position.x <= agent.destination.x + 0.2f) && (gameObject.transform.position.z >= agent.destination.z - 0.2f && gameObject.transform.position.z <= agent.destination.z + 0.2f))
+        {
+            StartCoroutine(ExampleCoroutine());
+            
+        }
+    }
+    IEnumerator ExampleCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+        heardsound = false;
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

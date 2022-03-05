@@ -8,6 +8,7 @@ TagManager:
   - Map
   - enemy
   - checkpoint
+  - bottle
   layers:
   - Default
   - TransparentFX
