@@ -53,6 +53,7 @@ public class bottleCode : MonoBehaviour
           
             gameObject.transform.localPosition = new Vector3(player.GetComponentInChildren<SphereCollider>().transform.position.x, 2.2f, player.GetComponentInChildren<SphereCollider>().transform.position.z);
             //gameObject.transform.localPosition = player.transform.position;
+            
         }
     }
 
@@ -103,6 +104,6 @@ public class bottleCode : MonoBehaviour
     void ungrabbed()
     {
         isGrabbed = false;
-        body.AddRelativeForce(5,5,0, ForceMode.Impulse);
+        body.AddRelativeForce(0,5,0, ForceMode.Impulse);
     }
 }
