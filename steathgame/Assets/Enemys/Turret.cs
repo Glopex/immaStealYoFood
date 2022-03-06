@@ -11,10 +11,13 @@ public class Turret : MonoBehaviour
     private TurretShoot currentGun;
     private float fireRate;
     private float fireRateDelta;
+    public bool turnoff;
+    public GameObject Model;
 
     // Start is called before the first frame update
     void Start()
     {
+        turnoff = false;
         playerTransform = GameObject.FindWithTag("Player").transform;
         currentGun = GetComponentInChildren<TurretShoot>();
         fireRate = currentGun.GetRateOfFire();
@@ -42,6 +45,10 @@ public class Turret : MonoBehaviour
             fireRateDelta = fireRate;
         }
 
+        if (turnoff == true)
+        {
+            turnoffturret();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,5 +66,12 @@ public class Turret : MonoBehaviour
             turretRange = 5f;
         }
 
+    }
+
+    void turnoffturret()
+    {
+        Instantiate(Model, transform.position, transform.rotation);
+        
+        Destroy(this.gameObject);
     }
 }
